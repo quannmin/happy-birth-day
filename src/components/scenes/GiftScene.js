@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import AnimeCharacter from '../AnimeCharacter';
+import { usePronoun } from '../../contexts/PronounContext';
 import './GiftScene.css';
 
 function GiftScene({ onComplete }) {
   const [giftOpened, setGiftOpened] = useState(false);
+  const { t } = usePronoun();
 
   const handleGiftClick = () => {
     setGiftOpened(true);
@@ -15,7 +17,7 @@ function GiftScene({ onComplete }) {
   return (
     <div className="gift-scene">
       <div className="gift-content">
-        <h2 className="gift-title">Anh có một món quà dành cho em...</h2>
+        <h2 className="gift-title">{t('Anh', 'Tớ')} có một món quà dành cho {t('em', 'cậu')}...</h2>
 
         <div className="character-gift">
           <AnimeCharacter pose="gift" size="large" />
@@ -38,7 +40,7 @@ function GiftScene({ onComplete }) {
               <span>✨</span>
               <span>✨</span>
             </div>
-            <h3 className="gift-reveal">Những kỷ niệm đẹp của chúng mình... 💖</h3>
+            <h3 className="gift-reveal">Những kỷ niệm đẹp của {t('chúng mình', 'tụi mình')}... 💖</h3>
           </div>
         )}
       </div>

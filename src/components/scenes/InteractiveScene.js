@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import AnimeCharacter from '../AnimeCharacter';
+import { usePronoun } from '../../contexts/PronounContext';
 import './InteractiveScene.css';
 
 function InteractiveScene({ onComplete }) {
   const [clickedItems, setClickedItems] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+  const { t } = usePronoun();
 
   const items = [
-    { id: 1, emoji: '💖', message: 'Em là ánh sáng trong cuộc đời anh', x: 15, y: 20 },
-    { id: 2, emoji: '⭐', message: 'Em tỏa sáng như ngôi sao', x: 75, y: 25 },
-    { id: 3, emoji: '🎈', message: 'Nụ cười em làm anh tan chảy', x: 30, y: 60 },
-    { id: 4, emoji: '💝', message: 'Anh yêu em nhiều lắm', x: 65, y: 65 },
-    { id: 5, emoji: '✨', message: 'Em thật tuyệt vời', x: 45, y: 40 },
-    { id: 6, emoji: '🌸', message: 'Em là điều kỳ diệu nhất', x: 85, y: 50 }
+    { id: 1, emoji: '💖', message: t('Em là ánh sáng trong cuộc đời anh', 'Cậu là ánh sáng trong cuộc đời tớ'), x: 15, y: 20 },
+    { id: 2, emoji: '⭐', message: t('Em tỏa sáng như ngôi sao', 'Cậu tỏa sáng như ngôi sao'), x: 75, y: 25 },
+    { id: 3, emoji: '🎈', message: t('Nụ cười em làm anh tan chảy', 'Nụ cười cậu làm tớ tan chảy'), x: 30, y: 60 },
+    { id: 4, emoji: '💝', message: t('Anh yêu em nhiều lắm', 'Tớ yêu cậu nhiều lắm'), x: 65, y: 65 },
+    { id: 5, emoji: '✨', message: t('Em thật tuyệt vời', 'Cậu thật tuyệt vời'), x: 45, y: 40 },
+    { id: 6, emoji: '🌸', message: t('Em là điều kỳ diệu nhất', 'Cậu là điều kỳ diệu nhất'), x: 85, y: 50 }
   ];
 
   const handleItemClick = (item) => {

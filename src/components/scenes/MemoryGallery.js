@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { usePronoun } from "../../contexts/PronounContext";
 import "./MemoryGallery.css";
 
 function MemoryGallery({ onComplete }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showButton, setShowButton] = useState(false);
+    const { t } = usePronoun();
 
     const photos = [
         {
-            url: `${process.env.PUBLIC_URL}/photos/15.jpg`,
-            caption: "Tấm anh thích nhất hí hí 😊",
+            url: t(`${process.env.PUBLIC_URL}/photos/15.jpg`, `${process.env.PUBLIC_URL}/photos/21.jpg`),
+            caption: t("Tấm anh thích nhất hí hí 😊", "Tấm tớ thích nhất hí hí 😊"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/20.jpg`,
-            caption: "Bông hoa xinh đẹp nhất cuộc đời anh 🌸",
+            caption: t("Bông hoa xinh đẹp nhất cuộc đời anh 🌸", "Bông hoa xinh đẹp nhất cuộc đời tớ 🌸"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/13.jpg`,
@@ -28,7 +30,7 @@ function MemoryGallery({ onComplete }) {
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/9.jpg`,
-            caption: "Chiếc váy anh thích nhất 💃",
+            caption: t("Chiếc váy anh thích nhất 💃", "Chiếc váy tớ thích nhất 💃"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/8.jpg`,
@@ -56,23 +58,23 @@ function MemoryGallery({ onComplete }) {
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/12.jpg`,
-            caption: "Bên em mọi lúc - nên phải cười thật tươi như vầy nhé! 😄",
+            caption: t("Bên em mọi lúc - nên phải cười thật tươi như vầy nhé! 😄", "Bên cậu mọi lúc - nên phải cười thật tươi như vầy nhé! 😄"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/6.jpg`,
-            caption: "Bé khủng long đáng yêu của anh 🦖",
+            caption: t("Bé khủng long đáng yêu của anh 🦖", "Bé khủng long đáng yêu của tớ 🦖"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/2.jpg`,
-            caption: "Ui da tim anh rụng rời rồi 💘",
+            caption: t("Ui da tim anh rụng rời rồi 💘", "Ui da tim tớ rụng rời rồi 💘"),
         },
         {
             url: `${process.env.PUBLIC_URL}/photos/14.jpg`,
-            caption: "Yêu em nhiều lắm luôn! ❤️",
+            caption: t("Yêu em nhiều lắm luôn! ❤️", "Yêu cậu nhiều lắm luôn! ❤️"),
         },
         {
-            url: `${process.env.PUBLIC_URL}/photos/5.jpg`,
-            caption: "Mãi bên anh nhé - yêu em!🤗",
+            url: t(`${process.env.PUBLIC_URL}/photos/5.jpg`, `${process.env.PUBLIC_URL}/photos/22.jpg`),
+            caption: t("Mãi bên anh nhé - yêu em!🤗", "Mãi bên tớ nhé - yêu cậu!🤗"),
         },
     ];
 
@@ -91,7 +93,7 @@ function MemoryGallery({ onComplete }) {
     return (
         <div className="memory-gallery">
             <h2 className="gallery-title-new">
-                Những khoảnh khắc đẹp của chúng mình 💕
+                {t("Những khoảnh khắc đẹp của chúng mình 💕", "Những khoảnh khắc đẹp của tụi mình 💕")}
             </h2>
 
             <div className="photo-frame-container">
@@ -126,7 +128,7 @@ function MemoryGallery({ onComplete }) {
 
             {showButton && (
                 <button className="next-btn" onClick={onComplete}>
-                    Xem lời nhắn của anh 💌
+                    {t("Xem lời nhắn của anh 💌", "Xem lời nhắn của tớ 💌")}
                 </button>
             )}
         </div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AnimeCharacter from '../AnimeCharacter';
+import { usePronoun } from '../../contexts/PronounContext';
 import './FinalScene.css';
 
 function FinalScene({ onReplay }) {
   const [fadeIn, setFadeIn] = useState(false);
+  const { t } = usePronoun();
 
   useEffect(() => {
     setTimeout(() => setFadeIn(true), 500);
@@ -22,7 +24,7 @@ function FinalScene({ onReplay }) {
         </h1>
 
         <div className="final-message">
-          <p>🌸 Yêu em mãi mãi 🌸</p>
+          <p>🌸 {t('Yêu em mãi mãi', 'Yêu cậu mãi mãi')} 🌸</p>
         </div>
 
         <button className="replay-btn" onClick={onReplay}>

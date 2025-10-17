@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import AnimeCharacter from '../AnimeCharacter';
 import Confetti from '../Confetti';
+import { usePronoun } from '../../contexts/PronounContext';
 import './IntroScene.css';
 
 function IntroScene({ onComplete }) {
   const [fadeIn, setFadeIn] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const { t } = usePronoun();
 
   useEffect(() => {
     setTimeout(() => setFadeIn(true), 500);
@@ -28,9 +30,9 @@ function IntroScene({ onComplete }) {
         </div>
 
         <p className="intro-message">
-          Chào em! Hôm nay là ngày đặc biệt của em đấy!
+          Chào {t('em', 'cậu')}! Hôm nay là ngày đặc biệt của {t('em', 'cậu')} đấy!
           <br />
-          Anh có món quà đặc biệt dành cho em...
+          {t('Anh', 'Tớ')} có món quà đặc biệt dành cho {t('em', 'cậu')}...
         </p>
 
         {showButton && (
