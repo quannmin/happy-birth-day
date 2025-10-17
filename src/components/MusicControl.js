@@ -44,7 +44,7 @@ function MusicControl() {
                 )}
             </button>
             <audio ref={audioRef} loop>
-                <source src="/happy-birthday.mp3" type="audio/mpeg" />
+                <source src={`${process.env.PUBLIC_URL}/happy-birthday.mp3`} type="audio/mpeg" />
             </audio>
         </div>
     );
