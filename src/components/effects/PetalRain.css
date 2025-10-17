@@ -1,0 +1,82 @@
+.petal-rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.petal-rain-piece {
+  position: absolute;
+  top: -10%;
+  animation: petalRainFall linear forwards;
+  filter: drop-shadow(0 2px 5px rgba(212, 181, 232, 0.3));
+}
+
+@keyframes petalRainFall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    transform: translateX(100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Different falling patterns */
+.petal-rain-piece:nth-child(odd) {
+  animation-timing-function: ease-in;
+}
+
+.petal-rain-piece:nth-child(even) {
+  animation-timing-function: ease-out;
+}
+
+.petal-rain-piece:nth-child(3n) {
+  animation-name: petalRainFallLeft;
+}
+
+@keyframes petalRainFallLeft {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    transform: translateX(-100px) rotate(-720deg);
+    opacity: 0;
+  }
+}
+
+.petal-rain-piece:nth-child(5n) {
+  animation-name: petalRainFallZigzag;
+}
+
+@keyframes petalRainFallZigzag {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(50px) rotate(180deg);
+  }
+  50% {
+    transform: translateX(-30px) rotate(360deg);
+  }
+  75% {
+    transform: translateX(40px) rotate(540deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(0) rotate(720deg);
+    opacity: 0;
+  }
+}
