@@ -64,7 +64,7 @@ function MemoryGallery({ onComplete }) {
         },
         {
             url: "/photos/2.jpg",
-            caption: "Ui da tim an rụng rời 💘",
+            caption: "Ui da tim anh rụng rời rồi 💘",
         },
         {
             url: "/photos/14.jpg",
@@ -72,7 +72,7 @@ function MemoryGallery({ onComplete }) {
         },
         {
             url: "/photos/5.jpg",
-            caption: "Anh và em - mãi mãi bên nhau nhé! 💑",
+            caption: "Mãi bên anh nhé - yêu em!🤗",
         },
     ];
 
